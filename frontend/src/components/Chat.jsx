@@ -1,6 +1,7 @@
 import React from 'react' 
 import { useState } from 'react'
 import axios from 'axios' ;
+import { useNavigate } from 'react-router-dom';
 
 
 const Chat = () => {
@@ -8,6 +9,10 @@ const [question,setQuestion] = useState("");
 const [response, setResponse] = useState("") ; 
 const [loading, setLoading] = useState(false)
 
+const navigate = useNavigate() ; 
+    function handleClick(){
+  navigate('/Chat') ;
+}
 async function getAnswer(e) {
   
   setQuestion("") ;
@@ -34,6 +39,10 @@ async function getAnswer(e) {
   }
 }
   return (
+    <>
+
+    <button onClick={handleClick} className='rounded-4xl bg-blue-500 text-white'>Home</button>
+
     <div className='h-150 w-150 px-4 flex flex-col justify-around items-center bg-white rounded-2xl'>
  {loading ? (
     <pre className='h-8/10 w-9/10 flex justify-center items-center overflow-y-scroll no-scrollbar text-black animate-pulse'>Loading.......</pre>
@@ -48,6 +57,7 @@ async function getAnswer(e) {
       <button onClick={getAnswer} className='rounded-4xl bg-blue-500 text-white'>enter</button>
 </div>
 </div>
+</>
   )
 }
 
