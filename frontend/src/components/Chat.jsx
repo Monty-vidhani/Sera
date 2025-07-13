@@ -11,7 +11,7 @@ const [loading, setLoading] = useState(false)
 
 const navigate = useNavigate() ; 
     function handleClick(){
-  navigate('/Chat') ;
+  navigate('/') ;
 }
 async function getAnswer(e) {
   
